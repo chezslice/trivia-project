@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <title>Trivia!</title>
+
+    <script>
+
+            // TODO: Add code to check answers to questions
+            // Select a element using document.querySelector in javascript. Element selected by ID, Class, or tag.
+            document.addEventListener('DOMContentLoaded', function()
+            {
+                let Correct_answer = document.querySelector("#Correct");
+                let Incorrect_answers = document.querySelectorAll(".Incorrect");
+                let Display_message = document.querySelector("#Display_message");
+
+            //Response to a event that happens on webpage for ex a button once clicked it will run another function change the color of button red/green/correct or incorrect.
+                 Correct_answer.addEventListener('click', function()
+                    {
+                    Correct_answer.style.backgroundColor = "green";
+                    Display_message.innerHTML = "Correct";
+                    })
+
+                    // For incorrect answers use for loop to signal that it is the incorrect answer to the question.
+                    for (let i = 0; i < Incorrect_answers.length; i++)
+                    {
+                        Incorrect_answers[i].addEventListener('click', function()
+                        {
+                        Incorrect_answers[i].style.backgroundColor = "red";
+                        Display_message.innerHTML = "Incorrect";
+                        })
+                    }
+                    document.querySelector("#guinea_pig").addEventListener('click', function()
+                    {
+                        let input = document.querySelector("input");
+                        let country_message = document.querySelector("#Display_message");
+                        if (input.value == "Switzerland")
+                        {
+                            input.style.color = "green";
+                            country_message.innerHTML = "Correct";
+                        }
+                        else
+                        {
+                            input.style.color = "red";
+                            country_message.innerHTML = "Incorrect";
+                        }
+                    })
+            });
+
+
+
+    </script>
+
+</head>
+<body>
+
+    <div class="jumbotron">
+        <h1>Trivia!</h1>
+    </div>
+
+    <div class="container">
+
+        <div class="section">
+            <h2>Part 1: Multiple Choice </h2>
+            <hr>
+
+            <!-- TODO: Add multiple choice question here -->
+            <h3>
+                What is the approximate ratio of people to sheep in New Zealand?
+            </h3>
+            <button class="Incorrect">
+                6 people per 1 sheep
+            </button>
+            <button class="Incorrect">
+                3 people per 1 sheep
+            </button>
+            <button class="Incorrect">
+                1 person per 1 sheep
+            </button>
+            <button class="Incorrect">
+                1 person per 3 sheep
+            </button>
+            <!-- Correct answer is 1 person to 6 sheep -->
+            <button id="Correct">
+                1 person per 6 sheep
+            </button>
+
+            <!-- Display message once user responses to the question. -->
+            <p id="Display_message"></p>
+
+
+        </div>
+
+        <div class="section">
+            <h2>Part 2: Free Response</h2>
+            <hr>
+
+            <!-- TODO: Add free response question here -->
+            <h3>
+                In which country is it illegal to own only one guinea pig, as a lone guinea pig might be lonely?
+                <input type="text">
+
+                <!-- Checking user input answer to the question. -->
+                <button id="guinea_pig">
+                    Check answer
+                </button>
+                <p id="Free_response"></p>
+            </h3>
+        </div>
+
+    </div>
+</body>
+</html>
